@@ -4,9 +4,10 @@ import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { BooksContext } from "@/context/BooksContext";
 import { IBooks } from "@/type/books.type";
+import Image from "next/image";
 
 const ListedPage = () => {
-  const { readBooks = [], wishlist = [] } = useContext(BooksContext);
+  const { readBooks, wishlist } = useContext(BooksContext);
 
   const [sortBy, setSortBy] = useState<"rating" | "pages" | "year">("rating");
 
@@ -91,14 +92,14 @@ const ListedPage = () => {
       {/* ================= Book List ================= */}
       <div className="flex flex-col gap-6">
         {sortReadBooks.length > 0 ? (
-          sortReadBooks.map((book: any, index: number) => (
+          sortReadBooks.map((book: IBooks, index: number) => (
             <div
               key={`${book.bookId}-${index}`}
               className="flex flex-col items-center gap-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:flex-row"
             >
               {/* ================= Book Image ================= */}
               <div className="flex h-56 w-full flex-shrink-0 items-center justify-center rounded-xl bg-gray-100 p-4 md:w-48">
-                <img
+                <Image
                   src={book.image || "/placeholder.jpg"}
                   alt={book.bookName || "Book"}
                   className="max-h-full max-w-full object-contain"
