@@ -13,9 +13,14 @@ interface IParams {
 }
 
 const getBooks = async () => {
-  const res = await fetch("http://localhost:3000/booksData.json");
+  try {
 
-  return res.json();
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/books`);
+    return res.json();
+  } catch (error) {
+    console.log("Error fetching books", error);
+    return [];
+  }
 };
 
 const BookDetailPage = async ({ params }: IParams) => {
