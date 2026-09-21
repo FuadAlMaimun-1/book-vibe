@@ -1,11 +1,20 @@
 import React from "react";
 import BookCard from "@/components/shared/BookCard";
 import { IBooks } from "@/type/books.type";
-import booksData from "../../../public/booksData.json";
 
-const Books = () => {
-  // fetch বাদ দিয়ে সরাসরি JSON ডাটা ব্যবহার
-  const books = booksData as IBooks[];
+const getBooks = async () => {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/books`);
+    return res.json();
+  } catch (error) {
+    console.log("Error failed to fetch books", error);
+    return [];
+  }
+};
+
+const Books = async () => {
+  const books = await getBooks();
 
   return (
     <div>
