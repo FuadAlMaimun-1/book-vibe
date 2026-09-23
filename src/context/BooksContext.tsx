@@ -9,7 +9,7 @@ type BooksContextType = {
   setWishlist: React.Dispatch<React.SetStateAction<IBooks[]>>;
 };
 
-export const BooksContext = createContext<BooksContextType>({
+export const BooksContext = createContext <BooksContextType>({
   readBooks: [],
   setReadBooks: () => {},
   wishlist: [],
@@ -24,15 +24,13 @@ const BooksProvider = ({ children }: BooksProviderProps) => {
   const [readBooks, setReadBooks] = useState<IBooks[]>([]);
   const [wishlist, setWishlist] = useState<IBooks[]>([]);
 
-  const shareData: BooksContextType = {
-    readBooks,
-    setReadBooks,
-    wishlist,
-    setWishlist,
-  };
+  const shareData = { readBooks, setReadBooks, wishlist, setWishlist };
 
   return (
-    <BooksContext.Provider value={shareData}>{children}</BooksContext.Provider>
+    <BooksContext.Provider 
+      value={shareData}>
+      {children}
+    </BooksContext.Provider>
   );
 };
 

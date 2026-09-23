@@ -1,7 +1,7 @@
 import ReadButton from "@/components/bookDetails/ReadButton";
 import WishlistButton from "@/components/bookDetails/WishlistButton";
 import { IBooks } from "@/type/books.type";
-import { ArrowLeft, Star} from "lucide-react";
+import { ArrowLeft, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,8 +14,9 @@ interface IParams {
 
 const getBooks = async () => {
   try {
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/books`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`,
+    );
     return res.json();
   } catch (error) {
     console.log("Error fetching books", error);
@@ -140,10 +141,12 @@ const BookDetailPage = async ({ params }: IParams) => {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row ">
-                <ReadButton book={book} />
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row 
+              ">
 
-                <WishlistButton  book={book} />
+                <ReadButton book={book} />
+                <WishlistButton book={book} />
+
               </div>
             </div>
           </div>

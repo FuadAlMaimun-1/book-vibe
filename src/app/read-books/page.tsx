@@ -25,8 +25,6 @@ const colors = [
   "black",
 ];
 
-
-
 // #region Sample data
 
 // #endregion
@@ -62,7 +60,7 @@ const CustomColorLabel = (props: LabelProps) => {
 
 export default function ReadBooks() {
 
-        const { readBooks } = useContext(BooksContext);
+  const { readBooks } = useContext(BooksContext);
 
  const data = readBooks.map((book: IBooks, index: number) => ({
   name: book.bookName,
@@ -73,6 +71,7 @@ export default function ReadBooks() {
 
 
   return (
+
     <div className="flex flex-col items-center justify-center mt-10">
      {readBooks.length > 0 ?  <BarChart
         style={{

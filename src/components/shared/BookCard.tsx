@@ -3,19 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const BookCard = ({ books}: { books: IBooks }) => {
-  const {
-    bookId,
-    id,
-    image,
-    bookName,
-    author,
-    tags = [],
-    category,
-    rating,
-  } = books || {};
+const BookCard = ({ books }: { books: IBooks }) => {
 
-  const currentId = bookId || id;
+  const {bookId, image, bookName, author, tags, category, rating, } = books;
+  
 
   return (
     <Link

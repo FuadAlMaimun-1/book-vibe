@@ -2,6 +2,7 @@ import React from "react";
 import BookCard from "@/components/shared/BookCard";
 import { IBooks } from "@/type/books.type";
 
+// Data Fetching Function
 const getBooks = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
