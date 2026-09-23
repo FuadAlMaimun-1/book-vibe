@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: {
-    default: "Book Vibe | Discover Your Next Favorite Book",
+    default: "Book Vibe",
     template: "%s | Book Vibe",
   },
 
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   creator: "Fuad Al Maimun",
 
   openGraph: {
-    title: "Book Vibe | Discover Your Next Favorite Book",
+    title: "Book Vibe",
     description:
       "Explore books, discover new stories, and find your next favorite book with Book Vibe.",
     type: "website",

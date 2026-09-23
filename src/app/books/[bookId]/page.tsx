@@ -25,7 +25,7 @@ const getBooks = async () => {
 };
 
 const BookDetailPage = async ({ params }: IParams) => {
-  const { bookId } = await params;
+  const { bookId } = params;
 
   const books = await getBooks();
 
